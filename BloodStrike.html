@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Blood Strike - الشحن</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    background: #0a0a0f;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #c084fc;
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #7e22ce;
+}
+
+.card {
+    background: #11111a;
+    padding: 15px;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #7e22ce;
+    box-shadow: 0 0 15px rgba(168,85,247,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(168,85,247,0.7);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+p {
+    color: #e9d5ff;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #7e22ce, #a855f7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+#confirm-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #8e44ad;
+    box-shadow: 0 0 20px #8e44ad;
+    text-align: center;
+    z-index: 1000;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">👻 GHOST SHOP</div>
+
+  <nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="#">حسابات</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+
+  <div class="search-box">
+    <input type="text" placeholder="ابحث عن منتج...">
+  </div>
+
+  <div class="cart-icon">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  </div>
+</header>
+
+<h1>🔥 شحن Blood Strike</h1>
+
+<!-- الذهب -->
+<div class="section">
+<h2>🪙 الذهب</h2>
+<div class="products">
+
+<div class="card"><img src="ذهب.png"><h3>100 ذهب</h3><p>55 جنيه</p><button onclick="addToCart(201,'100 ذهب',55,'ذهب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ذهب.png"><h3>320 ذهب</h3><p>160 جنيه</p><button onclick="addToCart(202,'320 ذهب',160,'ذهب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ذهب.png"><h3>540 ذهب</h3><p>250 جنيه</p><button onclick="addToCart(203,'540 ذهب',250,'ذهب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ذهب.png"><h3>1100 ذهب</h3><p>490 جنيه</p><button onclick="addToCart(204,'1100 ذهب',490,'ذهب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ذهب.png"><h3>2250 ذهب</h3><p>940 جنيه</p><button onclick="addToCart(205,'2250 ذهب',940,'ذهب.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- سترايك باس -->
+<div class="section">
+<h2>🎟️ سترايك باس</h2>
+<div class="products">
+
+<div class="card"><img src="سترايك باس.png"><h3>سترايك باس ايليت</h3><p>210 جنيه</p><button onclick="addToCart(206,'سترايك باس ايليت',210,'سترايك باس.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="سترايك باس.png"><h3>سترايك باس ايليت بلص</h3><p>440 جنيه</p><button onclick="addToCart(207,'سترايك باس ايليت بلص',440,'سترايك باس.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- عروض خاصة -->
+<div class="section">
+<h2>🚀 عروض خاصة</h2>
+<div class="products">
+
+<div class="card"><img src="ليفيل اب.png"><h3>عرض ليفل أب</h3><p>120 جنيه</p><button onclick="addToCart(208,'عرض ليفل أب',120,'ليفيل اب.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    function addToCart(id, name, price, img, btn){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({id, name, price, img});
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount(); // 🔥 أهم سطر
+
+    if(btn){
+        btn.innerText = "✔ تم";
+        setTimeout(()=>{
+            btn.innerText = "🛒 شراء";
+        },1000);
+    }
+}
+</script>
+
+</body>
+</html>

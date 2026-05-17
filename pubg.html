@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>PUBG - الشحن</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    background: #0a0a0f;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #c084fc;
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #7e22ce;
+}
+
+.card {
+    background: #11111a;
+    padding: 15px;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #7e22ce;
+    box-shadow: 0 0 15px rgba(168,85,247,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(168,85,247,0.7);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+p {
+    color: #e9d5ff;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #7e22ce, #a855f7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">👻 GHOST SHOP</div>
+
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="#">حسابات</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+
+  <div class="search-box">
+    <input type="text" placeholder="ابحث عن منتج...">
+  </div>
+
+  <div class="cart-icon">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  </div>
+</header>
+
+<h1>🔥 شحن PUBG</h1>
+
+<!-- الشدات -->
+<div class="section">
+<h2>💰 الشدات</h2>
+<div class="products">
+
+<div class="card"><img src="شدات.png"><h3>60 شدة</h3><p>55 جنيه</p><button onclick="addToCart(101,'60 شدة',55,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>120 شدة</h3><p>105 جنيه</p><button onclick="addToCart(102,'120 شدة',105,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>180 شدة</h3><p>150 جنيه</p><button onclick="addToCart(103,'180 شدة',150,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>335 شدة</h3><p>225 جنيه</p><button onclick="addToCart(104,'335 شدة',225,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>660 شدة</h3><p>440 جنيه</p><button onclick="addToCart(105,'660 شدة',440,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>720 شدة</h3><p>490 جنيه</p><button onclick="addToCart(106,'720 شدة',490,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>1800 شدة</h3><p>1070 جنيه</p><button onclick="addToCart(107,'1800 شدة',1070,'شدات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="شدات.png"><h3>3850 شدة</h3><p>2150 جنيه</p><button onclick="addToCart(108,'3850 شدة',2150,'شدات.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- الأزهار -->
+<div class="section">
+<h2>🌸 الأزهار</h2>
+<div class="products">
+
+<div class="card"><img src="ازهار.jpg"><h3>1$</h3><p>55 جنيه</p><button onclick="addToCart(109,'ازهار 1$',55,'ازهار.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ازهار.jpg"><h3>3$</h3><p>155 جنيه</p><button onclick="addToCart(110,'ازهار 3$',155,'ازهار.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="ازهار.jpg"><h3>5$</h3><p>240 جنيه</p><button onclick="addToCart(111,'ازهار 5$',240,'ازهار.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- برايم -->
+<div class="section">
+<h2>⭐ برايم</h2>
+<div class="products">
+
+<div class="card"><img src="برايم.png"><h3>برايم عادي</h3><p>60 جنيه</p><button onclick="addToCart(112,'برايم عادي',60,'برايم.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="برايم.png"><h3>برايم بلص</h3><p>470 جنيه</p><button onclick="addToCart(113,'برايم بلص',470,'برايم.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    function addToCart(id, name, price, img, btn){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({id, name, price, img});
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount(); // 🔥 أهم سطر
+
+    if(btn){
+        btn.innerText = "✔ تم";
+        setTimeout(()=>{
+            btn.innerText = "🛒 شراء";
+        },1000);
+    }
+}
+</script>
+
+</body>
+</html>

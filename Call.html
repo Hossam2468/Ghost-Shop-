@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Call of Duty - الشحن</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    background: #0a0a0f;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #c084fc;
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #7e22ce;
+}
+
+.card {
+    background: #11111a;
+    padding: 15px;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #7e22ce;
+    box-shadow: 0 0 15px rgba(168,85,247,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(168,85,247,0.7);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+p {
+    color: #e9d5ff;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #7e22ce, #a855f7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+#confirm-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #b300ff;
+    box-shadow: 0 0 20px #e100ff;
+    text-align: center;
+    z-index: 1000;
+}
+
+.card small{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.bonus{
+    color: #a855f7; /* بنفسجي */
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+
+    /* Glow خفيف 🔥 */
+    text-shadow: 0 0 8px #a855f7;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">👻 GHOST SHOP</div>
+
+  <nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="#">حسابات</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+
+  <div class="search-box">
+    <input type="text" placeholder="ابحث عن منتج...">
+  </div>
+
+  <div class="cart-icon">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  </div>
+</header>
+
+<h1>🔥 شحن Call of Duty</h1>
+
+<!-- CP -->
+<div class="section">
+<h2>🪙 CP Call of Duty</h2>
+<div class="products">
+
+<div class="card">
+<img src="CP.png">
+<h3>88 CP 🪙</h3>
+<p>60 جنيه</p>
+<button onclick="addToCart(1,'88 CP',60,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>160 CP 🪙</h3>
+<small> الحد الأقصى لكل حساب: 1</small>
+<p>60 جنيه</p>
+<button onclick="addToCart(2,'160 CP',60,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>460 CP 🪙</h3>
+<small>الحد الأقصى لكل حساب: 1</small>
+<p>225 جنيه</p>
+<button onclick="addToCart(3,'460 CP',225,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>960 CP 🪙</h3>
+<small>الحد الأقصى لكل حساب: 1</small>
+<p>425 جنيه</p>
+<button onclick="addToCart(4,'960 CP',425,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>2600 CP 🪙</h3>
+<small>الحد الأقصى لكل حساب: 1</small>
+<p>1,025 جنيه</p>
+<button onclick="addToCart(5,'2600 CP',1025,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>5400 CP 🪙</h3>
+<small>الحد الأقصى لكل حساب: 1</small>
+<p>2,025 جنيه</p>
+<button onclick="addToCart(6,'5400 CP',2025,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>11600 CP 🪙</h3>
+<p>5,050 جنيه</p>
+<button onclick="addToCart(7,'11600 CP',5050,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>23200 CP 🪙</h3>
+<p>9,770 جنيه</p>
+<button onclick="addToCart(8,'23200 CP',9770,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>34800 CP 🪙</h3>
+<p>14,550 جنيه</p>
+<button onclick="addToCart(9,'34800 CP',14550,'CP.png',this)">🛒 شراء</button>
+</div>
+
+<div class="card">
+<img src="CP.png">
+<h3>58000 CP 🪙</h3>
+<p>24,600 جنيه</p>
+<button onclick="addToCart(10,'58000 CP',24600,'CP.png',this)">🛒 شراء</button>
+</div>
+
+</div>
+</div>
+
+
+<script src="script.js"></script>
+
+<script>
+    function addToCart(id, name, price, img, btn){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({id, name, price, img});
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount(); // 🔥 أهم سطر
+
+    if(btn){
+        btn.innerText = "✔ تم";
+        setTimeout(()=>{
+            btn.innerText = "🛒 شراء";
+        },1000);
+    }
+}
+</script>
+
+</body>
+</html>

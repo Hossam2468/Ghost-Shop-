@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | Ghost Shop</title>
+    <link rel="stylesheet" href="style.css"> <!-- سنستخدم نفس ملف الستايل -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #0a0a0a;
+            border: 1px solid #6a00ff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(106, 0, 255, 0.2);
+            text-align: center;
+        }
+        .contact-container h1 { color: #a855f7; margin-bottom: 20px; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea {
+            background: #000;
+            border: 1px solid #333;
+            padding: 12px;
+            color: white;
+            border-radius: 5px;
+            outline: none;
+        }
+        .contact-form input:focus { border-color: #6a00ff; }
+        .contact-form button {
+            background: linear-gradient(90deg, #4b0082, #8e44ad);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .contact-form button:hover { transform: scale(1.02); box-shadow: 0 0 15px #6a00ff; }
+        .social-links { margin-top: 25px; display: flex; justify-content: center; gap: 20px; font-size: 24px; }
+        .social-links a { color: #a855f7; transition: 0.3s; }
+        .social-links a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+<!-- 🔝 Header -->
+
+<header>
+
+    <div class="cart-icon">
+  <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+</div>
+
+  <div class="logo">👻 GHOST SHOP</div>
+
+
+
+
+<nav>
+  <a href="index.html">الرئيسية</a>
+  <a href="#">حسابات</a>
+  <a href="contact.html" class="active">تواصل معنا</a>
+</nav>
+
+
+
+  <div class="search-box">
+
+    <input type="text" placeholder="ابحث عن منتج...">
+
+  </div>
+
+
+
+  <div class="icons">
+
+    🛒 ❤ 👤
+
+  </div>
+
+</header> 
+
+    <div class="contact-container">
+        <h1>اترك لنا رسالة ✉️</h1>
+        <form class="contact-form">
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <textarea rows="5" placeholder="كيف يمكننا مساعدتك؟" required></textarea>
+            <button type="submit">إرسال الرسالة</button>
+        </form>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>

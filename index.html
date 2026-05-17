@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Shop | عالم الألعاب</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔝 Header -->
+<header>
+  <div class="logo">👻 GHOST SHOP</div>
+
+  <nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="#">حسابات</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+ <div class="search-box">
+    <input type="text" placeholder="ابحث عن منتج...">
+  </div>
+
+  <!-- 🛒 سلة التسوق -->
+<div class="cart-icon">
+  <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+</div>
+
+  <div class="icons">
+    🛒 ❤ 👤
+  </div>
+</header>
+
+<!-- 🎯 Banner Slider -->
+<div class="banner-container">
+    <div class="electric"></div>
+
+  <div class="slides">
+    <div class="slide"><img src="banner.png"></div>
+    <div class="slide"><img src="بنر فري فاير.png"></div>
+    <div class="slide"><img src="بنر ببجي موبايل.png"></div>
+    <div class="slide"><img src="بنر بلود استرايك.png"></div>
+    <div class="slide"><img src="بنر كول اوف.jpg"></div>
+  </div>
+
+  <button class="arrow prev"><i class="fas fa-chevron-left"></i></button>
+  <button class="arrow next"><i class="fas fa-chevron-right"></i></button>
+
+</div>
+
+
+
+<!-- ⚡ Features -->
+<section class="features-grid">
+    <div class="feature-item"><i class="fas fa-shield-alt"></i><span>أمان تام</span><p>جميع المنتجات مضمونة 100%</p></div>
+    <div class="feature-item"><i class="fas fa-tachometer-alt"></i><span>سرعة في التسليم</span><p>تسليم فوري</p></div>
+    <div class="feature-item"><i class="fas fa-clock"></i><span>خدمة 24/7</span><p>دعم دائم</p></div>
+    <div class="feature-item"><i class="fas fa-user-friends"></i><span>بيع وشراء حسابات</span><p>أفضل الأسعار</p></div>
+    <div class="feature-item"><i class="fas fa-gamepad"></i><span>شحن جميع الألعاب</span><p>شحن سريع</p></div>
+</section>
+
+<!-- 🎮 Categories -->
+<section class="categories-section">
+
+    <h2 class="section-title">
+        <span class="neon-line"></span>
+        تصفح الأقسام
+        <span class="neon-line"></span>
+    </h2>
+
+ <div class="categories-container">
+            <!-- خدمات التواصل الاجتماعي -->
+            <div class="category-card social-card">
+                <div class="card-image">
+                    <div class="instagram-icon-wrapper">
+                        <i class="fab fa-instagram neon-insta"></i>
+                    </div>
+                    <img src="social-media.jpg.png" alt="Social Media">
+                </div>
+                <div class="card-overlay"><p>خدمات التواصل الاجتماعي</p></div>
+            </div>
+
+            <!-- ألعاب رياضية -->
+             <a href="game2.html" class="category-link">
+                <div class="category-card">
+                    <div class="card-image">
+                        <img src="sports.jpg.jpg" alt="Sports">
+                        <div class="icon-overlay"><i class="fas fa-futbol"></i></div>
+
+                    </div>
+                        <div class="card-overlay"><p>ألعاب رياضية</p></div>
+                </div>
+             </a>
+
+            <!-- ألعاب مغامرة -->
+            <div class="category-card">
+                <div class="card-image">
+                    <img src="adventure.jpg.png" alt="Adventure">
+                    <div class="icon-overlay"><i class="fas fa-khanda"></i></div>
+                </div>
+                <div class="card-overlay"><p>ألعاب مغامره</p></div>
+            </div>
+
+            <!-- ألعاب القتال (الأكشن) -->
+            <a href="games.html" class="category-link">
+
+<div class="category-card">
+    <div class="card-image">
+        <img src="fighting.jpg.png">
+    </div>
+
+    <div class="card-overlay">
+        <p>ألعاب القتال</p>
+    </div>
+</div>
+
+</a>
+
+
+            <!-- ألعاب رعب -->
+            <div class="category-card">
+                <div class="card-image">
+                    <img src="horror.jpg.png" alt="Horror">
+                    <div class="icon-overlay">
+                        <img src="logo.png" class="small-ghost-icon" alt="Ghost Icon">
+                    </div>
+                </div>
+                <div class="card-overlay"><p>ألعاب رعب</p></div>
+            </div>
+        </div>
+
+        <div class="show-all-container">
+            <button class="btn-show-all">عرض جميع الأقسام</button>
+        </div>
+    </section>
+
+
+</section>
+
+<!-- ⚙️ JS -->
+<script src="script.js"></script>
+
+<div id="cart-box" class="cart-box">
+    <h2>🛒 سلة التسوق</h2>
+    <div id="cart-items"></div>
+</div>
+
+
+
+<script src="script.js"></script>
+
+<script>
+let slides = document.querySelector(".slides");
+let total = document.querySelectorAll(".slide").length;
+let index = 0;
+
+// عرض السلايد
+function showSlide(i){
+    if(i >= total) index = 0;
+    else if(i < 0) index = total - 1;
+    else index = i;
+
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// أوتوماتيك
+setInterval(()=>{
+    showSlide(index + 1);
+}, 3000);
+
+// الأسهم
+document.querySelector(".next").onclick = () => showSlide(index + 1);
+document.querySelector(".prev").onclick = () => showSlide(index - 1);
+</script>
+</body>
+</html>

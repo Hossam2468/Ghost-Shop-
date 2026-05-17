@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Free Fire - الشحن</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    background: #0a0a0f;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #c084fc;
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #7e22ce;
+}
+
+.card {
+    background: #11111a;
+    padding: 15px;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #7e22ce;
+    box-shadow: 0 0 15px rgba(168,85,247,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(168,85,247,0.7);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+p {
+    color: #e9d5ff;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #7e22ce, #a855f7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+#confirm-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #8e44ad;
+    box-shadow: 0 0 20px #8e44ad;
+    text-align: center;
+    z-index: 1000;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">👻 GHOST SHOP</div>
+
+  <nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="#">حسابات</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+
+  <div class="search-box">
+    <input type="text" placeholder="ابحث عن منتج...">
+  </div>
+
+  <div class="cart-icon">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  </div>
+</header>
+
+<h1>🔥 شحن Free Fire</h1>
+
+<!-- الجواهر -->
+<div class="section">
+<h2>💎 الجواهر</h2>
+<div class="products">
+
+<div class="card"><img src="جواهر.png"><h3>110💎</h3><p>55 جنيه</p><button onclick="addToCart(1,'110💎',55,'جواهر.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="جواهر.png"><h3>340💎</h3><p>165 جنيه</p><button onclick="addToCart(2,'340💎',165,'جواهر.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="جواهر.png"><h3>580💎</h3><p>265 جنيه</p><button onclick="addToCart(3,'580💎',265,'جواهر.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="جواهر.png"><h3>1060💎</h3><p>475 جنيه</p><button onclick="addToCart(4,'1060💎',475,'جواهر.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="جواهر.png"><h3>2000💎</h3><p>930 جنيه</p><button onclick="addToCart(5,'2000💎',930,'جواهر.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="جواهر.png"><h3>5070💎</h3><p>2245 جنيه</p><button onclick="addToCart(6,'5070💎',2245,'جواهر.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- العضويات -->
+<div class="section">
+<h2>🎫 العضويات</h2>
+<div class="products">
+
+<div class="card"><img src="عضويات.png"><h3>أسبوعية (Account)</h3><p>80 جنيه</p><button onclick="addToCart(7,'عضوية أسبوعية Account',80,'عضويات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="عضويات.png"><h3>شهرية (Account)</h3><p>410 جنيه</p><button onclick="addToCart(8,'عضوية شهرية Account',410,'عضويات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="عضويات.png"><h3>أسبوعية (ID)</h3><p>120 جنيه</p><button onclick="addToCart(9,'عضوية أسبوعية ID',120,'عضويات.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="عضويات.png"><h3>شهرية (ID)</h3><p>450 جنيه</p><button onclick="addToCart(10,'عضوية شهرية ID',450,'عضويات.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- عرض مستوى -->
+<div class="section">
+<h2>📈 عرض مستوى</h2>
+<div class="products">
+
+<div class="card"><img src="تصريح مستوي.png"><h3>120💎</h3><p>25 جنيه</p><button onclick="addToCart(11,'عرض مستوى 120',25,'تصريح مستوي.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="تصريح مستوي.png"><h3>200💎</h3><p>40 جنيه</p><button onclick="addToCart(12,'عرض مستوى 200',40,'تصريح مستوي.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="تصريح مستوي.png"><h3>350💎</h3><p>60 جنيه</p><button onclick="addToCart(13,'عرض مستوى 350',60,'تصريح مستوي.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<!-- الدروبات -->
+<div class="section">
+<h2>🎁 الدروبات</h2>
+<div class="products">
+
+<div class="card"><img src="دروب.png"><h3>دروب 16</h3><p>35 جنيه</p><button onclick="addToCart(14,'دروب 16',35,'دروب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="دروب.png"><h3>دروب 1$</h3><p>55 جنيه</p><button onclick="addToCart(15,'دروب 1$',55,'دروب.png',this)">🛒 شراء</button></div>
+
+<div class="card"><img src="دروب.png"><h3>دروب 2$</h3><p>95 جنيه</p><button onclick="addToCart(16,'دروب 2$',95,'دروب.png',this)">🛒 شراء</button></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    function addToCart(id, name, price, img, btn){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({id, name, price, img});
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount(); // 🔥 أهم سطر
+
+    if(btn){
+        btn.innerText = "✔ تم";
+        setTimeout(()=>{
+            btn.innerText = "🛒 شراء";
+        },1000);
+    }
+}
+</script>
+
+
+</body>
+</html>

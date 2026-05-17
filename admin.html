@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>لوحة التحكم</title>
+
+<style>
+body{
+    background:#0a0a0f;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{ color:#c084fc; }
+
+.order{
+    background:#111;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    width:85%;
+    border:1px solid #8e44ad;
+    text-align:right;
+}
+
+.status{
+    padding:5px 10px;
+    border-radius:8px;
+}
+
+.pending{ background:orange; color:black; }
+.done{ background:green; color:black; }
+
+button{
+    margin:10px;
+    padding:10px;
+    border:none;
+    background:#8e44ad;
+    color:white;
+    cursor:pointer;
+}
+
+input,select{
+    padding:10px;
+    margin:10px;
+    background:#111;
+    color:white;
+    border:1px solid #8e44ad;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>📊 لوحة الأدمن</h1>
+
+<input id="searchInput" placeholder="🔎 بحث بـ ID" oninput="displayOrders()">
+<select id="sortSelect" onchange="displayOrders()">
+<option value="new">الأحدث</option>
+<option value="old">الأقدم</option>
+</select>
+
+<button onclick="clearOrders()">🗑️ حذف الكل</button>
+
+<div id="orders-container"></div>
+
+<script>
+
+let orders = [];
+let container = document.getElementById("orders-container");
+
+// تحميل الطلبات من السيرفر
+async function loadOrders(){
+    let res = await fetch("http://localhost:3000/orders");
+    orders = await res.json();
+    displayOrders();
+}
+
+// عرض
+function displayOrders(){
+
+    container.innerHTML = "";
+
+    let search = document.getElementById("searchInput").value.toLowerCase();
+    let sort = document.getElementById("sortSelect").value;
+
+    let data = [...orders];
+
+    if(search){
+        data = data.filter(o =>
+            (o.playerId || "").toLowerCase().includes(search)
+        );
+    }
+
+    data.sort((a,b)=>{
+        return sort === "new"
+            ? new Date(b.date) - new Date(a.date)
+            : new Date(a.date) - new Date(b.date);
+    });
+
+    if(data.length === 0){
+        container.innerHTML = "لا يوجد طلبات ❌";
+        return;
+    }
+
+    data.forEach(order => {
+
+        let total = 0;
+        let itemsHTML = "";
+
+        (order.items || []).forEach(i=>{
+            total += i.price;
+            itemsHTML += `<div>${i.name} - ${i.price} جنيه</div>`;
+        });
+
+        let statusClass = order.status?.includes("تم") ? "done" : "pending";
+
+        container.innerHTML += `
+        <div class="order">
+
+        🆔 ${order.playerId}<br>
+        📅 ${order.date}
+
+        <hr>
+
+        ${itemsHTML}
+
+        <hr>
+
+        💰 ${total} جنيه<br>
+
+        <div class="status ${statusClass}">
+            ${order.status}
+        </div>
+
+        <br>
+
+        ${order.proof ? `<img src="${order.proof}" width="120">` : ""}
+
+        <br>
+
+        <button onclick="markDone('${order._id}')">تم الشحن</button>
+
+        </div>
+        `;
+    });
+}
+
+// تحديث الحالة
+async function markDone(id){
+    await fetch(`http://localhost:3000/order/${id}`, {
+        method:"PUT"
+    });
+    loadOrders();
+}
+
+// حذف
+async function clearOrders(){
+    await fetch("http://localhost:3000/orders", {
+        method:"DELETE"
+    });
+    loadOrders();
+}
+
+loadOrders();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الألعاب | Ghost Shop</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    margin:0;
+}
+
+/* عنوان */
+h1{
+    text-align:center;
+    margin:40px 0;
+}
+
+/* الصورة */
+.game-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+/* Glow */
+.game-card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(168,85,247,0.4);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* جريد */
+.games-container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* كارت اللعبة */
+.game-card{
+    background:#111;
+    border:1px solid #8e44ad;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    transition:0.4s;
+}
+
+.game-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #8e44ad;
+}
+
+.game-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.game-card h2{
+    padding:15px;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+/* الكارت */
+.game-card{
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s;
+    background: #0a0a0f;
+    border: 2px solid rgba(168,85,247,0.3);
+}
+* الكونتينر */
+.games-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 40px;
+}
+
+/* Hover Effects */
+.game-card:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+.game-card:hover img{
+    transform: scale(1.1);
+}
+
+.game-card:hover::before{
+    opacity: 1;
+}
+
+/* 🛒 السلة فوق الشمال */
+.cart-icon{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:#111;
+    padding:10px 15px;
+    border:1px solid #8e44ad;
+    border-radius:10px;
+    z-index:1000;
+}
+
+.cart-icon a{
+    color:white;
+    text-decoration:none;
+}
+
+#cart-count{
+    background:#8e44ad;
+    padding:2px 8px;
+    border-radius:50%;
+    font-size:12px;
+    margin-right:5px;
+}
+
+/* أنيميشن دخول */
+.game-card{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.game-card:nth-child(2){ animation-delay: 0.2s; }
+.game-card:nth-child(3){ animation-delay: 0.4s; }
+.game-card:nth-child(4){ animation-delay: 0.6s; }
+
+@keyframes fadeUp{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 🛒
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🛒 السلة -->
+<div class="cart-icon">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+</div>
+
+<h1>🎮 قسم الألعاب</h1>
+
+<div class="games-container">
+
+    <!-- EA Sports FC Mobile -->
+    <a href="EASports.html">
+        <div class="game-card">
+
+            <!-- حط صورة EA هنا -->
+            <img src="EA-LOGO.jpg" alt="EA Sports FC Mobile">
+
+            <h2>EA Sports FC</h2>
+
+        </div>
+    </a>
+
+    <!-- eFootball -->
+    <a href="eFootball.html">
+        <div class="game-card">
+
+            <!-- حط صورة ببجي هنا -->
+            <img src="eFOOTBALL.jpg" alt="eFootball">
+
+            <h2>eFootball</h2>       
+        </div>
+    </a>
+
+
+
+<!-- ربط الجافاسكريبت -->
+<script src="script.js"></script>
+
+</body>
+</html>
