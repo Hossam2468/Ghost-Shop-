@@ -74,7 +74,7 @@ let container = document.getElementById("orders-container");
 
 // تحميل الطلبات من السيرفر
 async function loadOrders(){
-    let res = await fetch("ghost-shop-production.up.railway.app");
+    let res = await fetch("https://ghost-shop-production.up.railway.app/order");
     orders = await res.json();
     displayOrders();
 }
