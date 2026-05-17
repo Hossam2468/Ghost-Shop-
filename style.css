@@ -10,6 +10,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Header */
@@ -396,7 +397,7 @@ button:active {
 .banner-container{
     width: 90%;
     height: 600px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
     border-radius: 20px;

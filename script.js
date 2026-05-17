@@ -1,39 +1,20 @@
+// =======================
+// 🛒 تحميل السلة
+// =======================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-if (typeof cart === "undefined") {
-    var cart = JSON.parse(localStorage.getItem("cart")) || [];
-}
-// تحديث عدد السلة
-function updateCartCount(){
-    let count = document.getElementById("cart-count");
-    if(count){
-        count.innerText = cart.length;
-    }
-}
-
-
-
-
-
-
-var note = localStorage.getItem("userNotification");
-
+// =======================
+// 🔔 إشعار المستخدم
+// =======================
+let note = localStorage.getItem("userNotification");
 if(note){
     alert(note);
     localStorage.removeItem("userNotification");
 }
 
-// إضافة للسلة
-// تحميل السلة
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// إضافة منتج
-function addToCart(id, name, price, img){
-    cart.push({id, name, price, img});
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-}
-
-// عدد السلة
+// =======================
+// 🛒 تحديث عدد السلة
+// =======================
 function updateCartCount(){
     let el = document.getElementById("cart-count");
     if(el){
@@ -41,48 +22,18 @@ function updateCartCount(){
     }
 }
 
-// حذف
-function removeItem(index){
-    cart.splice(index,1);
+// =======================
+// ➕ إضافة للسلة
+// =======================
+function addToCart(id, name, price, img){
+    cart.push({id, name, price, img});
     localStorage.setItem("cart", JSON.stringify(cart));
-    location.reload();
+    updateCartCount();
 }
-
-// مسح
-function clearCart(){
-    localStorage.removeItem("cart");
-    cart = [];
-    location.reload();
-}
-
-// checkout
-function goToCheckout(){
-    let playerId = document.getElementById("playerId").value;
-
-    if(!playerId){
-        alert("ادخل ID");
-        return;
-    }
-
-    localStorage.setItem("playerId", playerId);
-    window.location.href = "checkout.html";
-}
-
-updateCartCount();
-    // تأثير الزر
-    if(btn){
-        btn.innerText = "✔ تم";
-        setTimeout(()=>{
-            btn.innerText = "🛒 شراء";
-        },1000);
-    }
-
-    showPopup("تمت الإضافة 🛒", name + " اتضاف للسلة");
 
 // =======================
 // ❌ حذف منتج
 // =======================
-
 function removeItem(index){
     cart.splice(index,1);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -92,7 +43,6 @@ function removeItem(index){
 // =======================
 // 🧹 مسح السلة
 // =======================
-
 function clearCart(){
     localStorage.removeItem("cart");
     cart = [];
@@ -100,108 +50,61 @@ function clearCart(){
 }
 
 // =======================
-// 💳 تنفيذ الطلب
+// 💳 الذهاب للدفع
 // =======================
+function goToCheckout(){
+    let playerId = document.getElementById("playerId").value;
 
+    if(!playerId){
+        alert("ادخل ID اللاعب ❗");
+        return;
+    }
+
+    localStorage.setItem("playerId", playerId);
+    window.location.href = "checkout.html";
+}
+
+// =======================
+// 💳 إرسال الطلب للسيرفر
+// =======================
 function checkout(){
 
-    let playerId = document.getElementById("player-id")?.value;
+    let playerId = localStorage.getItem("playerId");
 
     if(cart.length === 0){
-        showPopup("خطأ ❌", "السلة فاضية");
+        alert("السلة فاضية ❌");
         return;
     }
 
     if(!playerId){
-        showPopup("خطأ ❌", "ادخل ID اللاعب");
+        alert("ادخل ID اللاعب ❗");
         return;
     }
 
-    // تحميل الطلبات القديمة
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-    // إنشاء الطلب (نسخة من السلة)
-    let order = {
-        id: playerId,
-        items: [...cart],
-        date: new Date().toLocaleString()
-    };
-
-    // إضافة الطلب
-    orders.push(order);
-
-    // حفظ
-fetch("ghost-shop-production.up.railway.app", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        playerId: playerId,
-        items: cart,
-        amount: amount,
-        proof: reader.result,
-        status: "⏳ قيد المراجعة",
-        date: new Date().toLocaleString()
+    fetch("https://ghost-shop-production.up.railway.app/order", { // ⚠️ لازم https + /order
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            playerId: playerId,
+            items: cart,
+            amount: cart.reduce((sum,item)=>sum+item.price,0),
+            status: "⏳ قيد المراجعة",
+            date: new Date().toLocaleString()
+        })
     })
-})
-.then(()=> {
-    alert("تم إرسال الطلب ✅");
-    localStorage.removeItem("cart");
-    window.location.href = "index.html";
-});
-}
-
-// =======================
-// 🔔 Popup
-// =======================
-
-function showPopup(title, message){
-    let popup = document.getElementById("popup");
-
-    if(!popup){
-        alert(message);
-        return;
-    }
-
-    document.getElementById("popup-title").innerText = title;
-    document.getElementById("popup-message").innerText = message;
-
-    popup.style.display = "flex";
-}
-
-function closePopup(){
-    let popup = document.getElementById("popup");
-    if(popup){
-        popup.style.display = "none";
-    }
-}
-
-// =======================
-// 🚀 تشغيل تلقائي
-// =======================
-
-updateCartCount();
-
-function updateCartCount(){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = document.getElementById("cart-count");
-
-    if(count){
-        count.innerText = cart.length;
-    }
-}
-
-
-
-let orderId = "ORD" + Date.now();
-localStorage.setItem("lastOrderId", orderId);
-new Audio("notify.mp3").play();
-
-async function clearOrders(){
-    await fetch("ghost-shop-production.up.railway.app", {
-        method: "DELETE"
+    .then(()=> {
+        alert("تم إرسال الطلب ✅");
+        localStorage.removeItem("cart");
+        window.location.href = "index.html";
+    })
+    .catch(()=> {
+        alert("حصل خطأ ❌");
     });
-
-    loadOrders();
 }
+
+// =======================
+// 🚀 تشغيل
+// =======================
+updateCartCount();
