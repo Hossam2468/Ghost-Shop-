@@ -50,3 +50,7 @@ app.delete("/orders", async (req,res)=>{
 });
 
 app.listen(3000, ()=> console.log("🚀 Server running"));
+
+mongoose.connect("mongodb+srv://Ghost:hossam01129942898$$@cluster0.yeughqs.mongodb.net/?appName=Cluster0")
+.then(()=> console.log("✅ Connected to DB"))
+.catch(err => console.log(err));

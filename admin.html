@@ -73,7 +73,7 @@ let container = document.getElementById("orders-container");
 
 // تحميل الطلبات من السيرفر
 async function loadOrders(){
-    let res = await fetch("http://localhost:3000/orders");
+    let res = await fetch("ghost-shop-production.up.railway.app");
     orders = await res.json();
     displayOrders();
 }
@@ -150,7 +150,7 @@ function displayOrders(){
 
 // تحديث الحالة
 async function markDone(id){
-    await fetch(`http://localhost:3000/order/${id}`, {
+    await fetch(`ghost-shop-production.up.railway.app/${id}`, {
         method:"PUT"
     });
     loadOrders();
@@ -158,7 +158,7 @@ async function markDone(id){
 
 // حذف
 async function clearOrders(){
-    await fetch("http://localhost:3000/orders", {
+    await fetch("ghost-shop-production.up.railway.app", {
         method:"DELETE"
     });
     loadOrders();

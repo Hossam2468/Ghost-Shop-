@@ -131,7 +131,7 @@ function checkout(){
     orders.push(order);
 
     // حفظ
-fetch("http://localhost:3000/order", {
+fetch("ghost-shop-production.up.railway.app", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -199,7 +199,7 @@ localStorage.setItem("lastOrderId", orderId);
 new Audio("notify.mp3").play();
 
 async function clearOrders(){
-    await fetch("http://localhost:3000/orders", {
+    await fetch("ghost-shop-production.up.railway.app", {
         method: "DELETE"
     });
 

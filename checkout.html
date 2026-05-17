@@ -43,7 +43,7 @@ function finishPayment(){
 
     reader.onload = function(){
 
-        fetch("http://localhost:3000/order", {
+        fetch("ghost-shop-production.up.railway.app", {
             method:"POST",
             headers:{ "Content-Type":"application/json" },
             body: JSON.stringify({
